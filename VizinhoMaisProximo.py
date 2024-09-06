@@ -7,15 +7,15 @@ class VizinhoMaisProximo():
 
 	def __init__(self, nome_imagem):
 		self.nome_imagem = nome_imagem  #nome_imagem: Armazena o nome do arquivo da imagem
-		self.m = 0  #m e n: Armazenam as dimensões (largura e altura) da imagem.
-		self.n = 0
+		self.m = 0  #m: Armazenam a altura da imagem.
+		self.n = 0 #n: Armazena a largura da imagem.
 		self.matriz = []  #matriz: Armazena a imagem como uma matriz numpy (grayscale).
 		self.img = []  #img: Armazena o objeto imagem da PIL.
 
 	'''
 	Abrindo o arquivo e pegando dimensões MxN
 	'''
-	def carregarImagem(self):
+	def carregaImagem(self):
 		img = Image.open(self.nome_imagem) 
 		self.img = img
 		#Converte Imagem Object para Matriz
@@ -24,17 +24,17 @@ class VizinhoMaisProximo():
 		self.m = np.size(self.matriz, 1)
 		#Dimensão N
 		self.n = np.size(self.matriz, 0)
-		print("Linhas: {}\nColunas: {}\n".format(self.m, self.n))
+		print(f"Linhas: {self.m}\nColunas: {self.n}\n")
 		print(self.matriz)
 
 	'''
 	Vizinho Mais Próximo por redução
 	'''
-	def porReducao(self):
+	def reducao(self):
 		saida = np.zeros([self.m//2,self.n//2]) #divide a matriz pela metade
 		m1 = np.size(saida, 1)
 		n1 = np.size(saida, 0)
-		print("Linhas: {}\nColunas: {}\n".format(m1,n1))
+		print(f"Linhas: {m1}\nColunas: {n1}\n")
 
 		#Determina o tamanho tamM e tamN para a iteração, ajustando para dimensões ímpares.
 		tamM = self.m-1 if self.m/2 != 0 else self.m
@@ -52,15 +52,15 @@ class VizinhoMaisProximo():
 		self.img.show()		
 		imagem.show()
 
-	'''
-	Vizinho Mais Próximo por Ampliação
-	'''
-	def porAmpliacao(self):
+
+	# Vizinho Mais Próximo por Ampliação
+
+	def ampliacao(self):
 		#Criando nova matriz com o dobro de tamanho com dimensões M*2xN*2
 		saida = np.zeros([self.m*2,self.n*2])
 		m1 = np.size(saida, 1)
 		n1 = np.size(saida, 0)
-		print("Linhas: {}\nColunas: {}\n".format(m1,n1))
+		print(f"Linhas: {m1}\nColunas: {n1}\n")
 
 
 		#Percorre a nova matriz saida para preenchê-la: 

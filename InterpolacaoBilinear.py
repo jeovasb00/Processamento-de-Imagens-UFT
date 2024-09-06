@@ -4,7 +4,7 @@ import numpy as np #biblioteca usada para operações de matriz.
 #A classe InterpolacaoBilinear é responsável por manipular a imagem. No método __init__, são inicializados atributos como o nome da imagem (nome_imagem), 
 #as dimensões da imagem (m e n), a matriz que representa os pixels da imagem (matriz), e a imagem propriamente dita (img).
 
-class InterpolacaoBilinear():
+class Interpolacao_Bilinear():
 
 	def __init__(self, nome_imagem):
 		self.nome_imagem = nome_imagem
@@ -14,10 +14,8 @@ class InterpolacaoBilinear():
 		self.img = []
 
 #Este método carrega a imagem e converte-a para uma matriz de pixels em tons de cinza ('L' significa grayscale). Ele também define as dimensões da imagem (m e n) e imprime a matriz da imagem.
-	'''
-	Abrindo o arquivo e pegando dimensões MxN
-	'''
-	def carregarImagem(self):
+	
+	def carregaImagem(self):
 		img = Image.open(self.nome_imagem)
 		self.img = img
 		#Converte Imagem Object para Matriz
@@ -26,23 +24,20 @@ class InterpolacaoBilinear():
 		self.m = np.size(self.matriz, 1)
 		#Dimensão N
 		self.n = np.size(self.matriz, 0)
-		print("Linhas: {}\nColunas: {}\n".format(self.m, self.n))
+		print(f"Linhas: {self.m}\nColunas: {self.n}\n")
 		print(self.matriz)
 
 
 #Este método realiza a redução da imagem usando interpolação bilinear. Ele cria uma nova matriz (saida) com metade das dimensões originais. Para cada bloco 2x2 na matriz original, 
 #o método calcula a média dos quatro pixels para determinar o valor do pixel correspondente na imagem reduzida. O resultado é então exibido.
 
-	'''
-	Interpolação Bilinear para Redução
-	'''
-	def paraReducao(self):
+	def reducao(self):
 		saida = np.zeros([self.m//2,self.n//2])
 		m1 = np.size(saida, 1)
 		n1 = np.size(saida, 0)
-		print("Linhas: {}\nColunas: {}\n".format(m1,n1))
+		print(f"Linhas: {m1}\nColunas: {n1}\n")
 
-		#Ternário em Python
+		#Determina o tamanho tamM e tamN para a iteração, ajustando para dimensões ímpares.
 		tamM = self.m-1 if self.m/2 != 0 else self.m
 		tamN = self.n-1 if self.n/2 != 0 else self.n
 
@@ -62,17 +57,13 @@ class InterpolacaoBilinear():
 		self.img.show()
 		imagem.show()
 
-	'''
-	Interpolação Bilinear para Ampliação
-	Ainda a fazer, código abaixo é do Vizinho mais próx
-	'''
-	def paraAmpliacao(self):
-		#Criando nova matriz com dimensões M*2xN*2
+
+	def ampliacao(self): #Criando nova matriz com dimensões M*2xN*2
 		#A nova matriz é criada com o dobro do tamanho da original.
 		saida = np.zeros([self.m*2,self.n*2])
 		m1 = np.size(saida, 1)
 		n1 = np.size(saida, 0)
-		print("Linhas: {}\nColunas: {}\n".format(m1,n1))
+		print(f"Linhas: {m1}\nColunas: {n1}\n")
 
      #Os pixels que correspondem diretamente aos pixels da matriz original são copiados.
 		for i in range(m1-1):

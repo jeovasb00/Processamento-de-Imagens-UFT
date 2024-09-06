@@ -1,30 +1,29 @@
 from VizinhoMaisProximo import VizinhoMaisProximo
-from InterpolacaoBilinear import InterpolacaoBilinear
+from InterpolacaoBilinear import Interpolacao_Bilinear
 
 if __name__ == '__main__':
-	print("Processamento de Imagens.")
 
 	vizinho = VizinhoMaisProximo("PI01NNBI\\imagens\\imagemteste.png")
-	vizinho.carregarImagem()
-	interpolacao = InterpolacaoBilinear("PI01NNBI\\imagens\\imagemteste.png")
-	interpolacao.carregarImagem()
+	vizinho.carregaImagem()
+	interpolacao = Interpolacao_Bilinear("PI01NNBI\\imagens\\imagemteste.png")
+	interpolacao.carregaImagem()
 
 	op = -1
 
-	menuStr = "\n\nDigite 0 para sair.\nMenu:\n"
-	menuStr += "Vizinho Mais Próximo\n1 - Por Redução\n2 - Por Ampliação\n"
-	menuStr += "Interpolação Bilinear\n3 - Para Redução\n4 - Para Ampliação\n"
+	menuStr = "\n\nMenu:\n"
+	menuStr += "Vizinho Mais Próximo\n1 - Por Redução\n2 - Por Ampliação\n\n"
+	menuStr += "Interpolação Bilinear\n3 - Para Redução\n4 - Para Ampliação\n\nDigite 0 para sair."
 
 	while op != 0:
 		op = input(menuStr)
 		op = int(op)
 		if op == 1:
-			vizinho.porReducao()
+			vizinho.reducao()
 		elif op == 2:
-			vizinho.porAmpliacao()
+			vizinho.ampliacao()
 		elif op == 3:
-			interpolacao.paraReducao()
+			interpolacao.reducao()
 		elif op == 4:
-			interpolacao.paraAmpliacao()
+			interpolacao.ampliacao()
 
 	print("Fim execução!!")
