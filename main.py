@@ -8,22 +8,20 @@ if __name__ == '__main__':
 	interpolacao = Interpolacao_Bilinear("PI01NNBI\\imagens\\imagemteste.png")
 	interpolacao.carregaImagem()
 
-	op = -1
+	n = -1
 
 	menuStr = "\n\nMenu:\n"
 	menuStr += "Vizinho Mais Próximo\n1 - Por Redução\n2 - Por Ampliação\n\n"
 	menuStr += "Interpolação Bilinear\n3 - Para Redução\n4 - Para Ampliação\n\nDigite 0 para sair."
 
-	while op != 0:
-		op = input(menuStr)
-		op = int(op)
-		if op == 1:
+	while n != 0:
+		n = input(menuStr)
+		n = int(n)
+		if n == 1:
 			vizinho.reducao()
-		elif op == 2:
+		elif n == 2:
 			vizinho.ampliacao()
-		elif op == 3:
+		elif n == 3:
 			interpolacao.reducao()
-		elif op == 4:
+		elif n == 4:
 			interpolacao.ampliacao()
-
-	print("Fim execução!!")
