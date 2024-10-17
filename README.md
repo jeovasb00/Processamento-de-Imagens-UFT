@@ -1,1 +1,1 @@
-Repositório das implementações da disciplina de Processamento de Imagens da Universidade Federal do Tocantins período 2024/1 pelos alunos [Jeová de Sousa Barbosa](https://github.com/jeovasb00) e [Mateus Alves Araujo](https://github.com/MateusAlvez)
+Repositório das implementações da disciplina de Processamento de Imagens da Universidade Federal do Tocantins, período 2024/1, pelos alunos [Jeová de Sousa Barbosa](https://github.com/jeovasb00) e [Mateus Alves Araujo](https://github.com/MateusAlvez)
