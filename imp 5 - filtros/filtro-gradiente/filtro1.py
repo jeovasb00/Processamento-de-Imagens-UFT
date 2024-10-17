@@ -1,8 +1,8 @@
 from PIL import Image
 
-img = Image.open("filtros (imp 5)\\gradiente\\dog.jpg")
+img = Image.open("imp 5 - filtros\\filtro-gradiente\\dog.jpg")
 grayscale_image = img.convert('L')
-grayscale_image.save('filtros (imp 5)\\gradiente\\grayscale-dog.jpg')
+grayscale_image.save('imp 5 - filtros\\filtro-gradiente\\grayscale-dog.jpg')
 
 first_image = grayscale_image
 
@@ -22,4 +22,4 @@ for i in range(1, width - 2):
 
         first_image.putpixel((i,j), first_image_new_value)
 
-first_image.save("filtros (imp 5)\\gradiente\\first-sobel-dog.jpg")
+first_image.save("imp 5 - filtros\\filtro-gradiente\\first-sobel-dog.jpg")

@@ -1,8 +1,8 @@
 from PIL import Image
 
-img = Image.open("filtros (imp 5)\\filtro-media\\dog.jpg")
+img = Image.open("imp 5 - filtros\\filtro-media\\dog.jpg")
 grayscale_image = img.convert('L')
-grayscale_image.save('filtros (imp 5)\\filtro-media\\grayscale-dog.jpg')
+grayscale_image.save('imp 5 - filtros\\filtro-media\\grayscale-dog.jpg')
 smoothed_image = grayscale_image
 
 width, height = grayscale_image.size
@@ -17,4 +17,4 @@ for i in range(1, width - 2):
         new_value = int(new_value/9)
         smoothed_image.putpixel((i,j), new_value)
 
-smoothed_image.save("filtros (imp 5)\\filtro-media\\smoothed-dog.jpg")
+smoothed_image.save("imp 5 - filtros\\filtro-media\\smoothed-dog.jpg")
